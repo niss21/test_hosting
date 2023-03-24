@@ -6,6 +6,8 @@ const auth_route = require("./route/auth")
 const jobs_route = require("./route/jobs")
 const jobapplied_route = require("./route/jobapplied")
 
+const PORT = process.env.PORT || 8000
+
 require('dotenv').config() 
 app.use(cors())
 app.use(express.json())   
@@ -63,6 +65,11 @@ app.use((err, req, res, next) => {
 require("./db/conn");
 
 
-app.listen(process.env.PORT, () => {
-    console.log("server started. ");
+// app.listen(process.env.PORT, () => {
+//     console.log("server started. ");
+// })
+
+
+app.listen(PORT,()=>{
+    console.log(`Server start at port no ${PORT}`)
 })
